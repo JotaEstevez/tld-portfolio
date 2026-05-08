@@ -1,0 +1,353 @@
+/* ============================================================
+   TLD Portfolio · Access Gate styles
+   Hereda tokens (Fraunces + crema/dorado) hardcodeados para
+   evitar dependencia de las CSS de cada página.
+   ============================================================ */
+
+/* Cuando html.tld-locked, esconder todo lo que no sea el gate */
+html.tld-locked body > *:not(#tld-gate) {
+  display: none !important;
+}
+html.tld-locked,
+html.tld-locked body {
+  background: #FDFCF8;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* === GATE === */
+.tld-gate-overlay {
+  position: fixed;
+  inset: 0;
+  background: #FDFCF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  padding: 32px 24px;
+  font-family: "Fraunces", "Times New Roman", serif;
+  color: #1C1A17;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tld-gate-card {
+  max-width: 580px;
+  width: 100%;
+  text-align: center;
+}
+
+.tld-gate-mono {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  color: #1C1A17;
+  margin-bottom: 80px;
+  letter-spacing: -0.01em;
+}
+.tld-gate-mono .tld-gate-dot { color: #B8952E; }
+
+.tld-gate-kicker {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #B8952E;
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.tld-gate-kicker::before {
+  content: "";
+  width: 32px; height: 1px;
+  background: #B8952E;
+}
+
+.tld-gate-title {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #1C1A17;
+  margin: 0 0 24px;
+}
+.tld-gate-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: #B8952E;
+}
+
+.tld-gate-lede {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #5A5248;
+  max-width: 460px;
+  margin: 0 auto 36px;
+}
+
+.tld-gate-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tld-gate-form input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1px solid #D4C9A8;
+  border-radius: 100px;
+  background: #FFFFFF;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 14px;
+  color: #1C1A17;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tld-gate-form input:focus {
+  border-color: #B8952E;
+  box-shadow: 0 0 0 4px rgba(184, 149, 46, 0.12);
+}
+.tld-gate-form input.tld-shake {
+  animation: tld-shake 0.4s;
+  border-color: #c0392b;
+}
+@keyframes tld-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.tld-gate-form button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 100px;
+  background: #1C1A17;
+  color: #FDFCF8;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+.tld-gate-form button:hover { background: #B8952E; transform: translateY(-1px); }
+.tld-gate-form .tld-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+.tld-gate-form button:hover .tld-arrow { transform: translateX(2px); }
+
+.tld-gate-error {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c0392b;
+  min-height: 18px;
+  margin-bottom: 12px;
+}
+
+.tld-gate-foot {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  color: #9B9487;
+  max-width: 400px;
+  margin: 32px auto 0;
+}
+.tld-gate-foot a { color: #5A5248; text-decoration: underline; }
+.tld-gate-foot a:hover { color: #B8952E; }
+
+/* === ADMIN FAB · solo master === */
+.tld-admin-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 99998;
+  padding: 12px 20px;
+  background: #1C1A17;
+  color: #FDFCF8;
+  border: none;
+  border-radius: 100px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.tld-admin-fab:hover { background: #B8952E; transform: translateY(-2px); }
+.tld-admin-icon {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 14px;
+  vertical-align: -1px;
+  color: #B8952E;
+  font-weight: 600;
+}
+.tld-admin-fab:hover .tld-admin-icon { color: #FDFCF8; }
+
+.tld-lock-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 220px;
+  z-index: 99998;
+  padding: 12px 18px;
+  background: transparent;
+  color: #5A5248;
+  border: 1px solid #D4C9A8;
+  border-radius: 100px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tld-lock-fab:hover { background: #1C1A17; color: #FDFCF8; border-color: #1C1A17; }
+
+/* === ADMIN MODAL === */
+.tld-admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 26, 23, 0.65);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 24px;
+  font-family: "Fraunces", serif;
+}
+
+.tld-admin-modal-card {
+  background: #FDFCF8;
+  border-radius: 18px;
+  padding: 56px 48px 40px;
+  max-width: 580px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: #1C1A17;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+}
+
+.tld-admin-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  line-height: 1;
+  color: #9B9487;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+}
+.tld-admin-close:hover { background: #F6F2E8; color: #1C1A17; }
+
+.tld-admin-title {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+  color: #1C1A17;
+}
+.tld-admin-title em { font-style: italic; font-weight: 300; color: #B8952E; }
+
+.tld-admin-lede {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  color: #5A5248;
+  max-width: 420px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+}
+
+.tld-admin-block {
+  background: #F6F2E8;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.tld-admin-label {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9B9487;
+  margin-bottom: 12px;
+}
+
+.tld-admin-value {
+  font-family: "Fraunces", serif;
+  font-size: 15px;
+  color: #1C1A17;
+  word-break: break-all;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.tld-admin-value.tld-admin-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #B8952E;
+}
+
+.tld-admin-copy {
+  padding: 8px 16px;
+  background: #1C1A17;
+  color: #FDFCF8;
+  border: none;
+  border-radius: 100px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tld-admin-copy:hover { background: #B8952E; }
+
+.tld-admin-new {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: transparent;
+  color: #5A5248;
+  border: 1px solid #D4C9A8;
+  border-radius: 100px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tld-admin-new:hover { background: #1C1A17; color: #FDFCF8; border-color: #1C1A17; }
+
+@media (max-width: 600px) {
+  .tld-gate-form { flex-direction: column; }
+  .tld-gate-form button { width: 100%; }
+  .tld-admin-modal-card { padding: 48px 24px 32px; }
+  .tld-lock-fab { display: none; }
+}
