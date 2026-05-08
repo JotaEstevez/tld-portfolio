@@ -246,12 +246,12 @@ section.cs.first { padding-top: clamp(140px, 18vw, 220px); }
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.cs-shot-frame img { width: 100%; height: 100%; object-fit: cover; }
+.cs-shot-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .cs-shot-frame.placeholder {
   font-family: var(--mono);
   font-size: 11px;
