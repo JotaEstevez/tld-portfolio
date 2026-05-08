@@ -6,7 +6,23 @@
 (function() {
   'use strict';
 
-  // === CONFIG (rota cuando quieras invalidar todas las claves anteriores) ===
+  // === CONFIG ===
+  //
+  // Cómo rotar (todo cambio requiere push a main):
+  //
+  //   1. Invalidar SOLO las claves de invitado emitidas hasta ahora
+  //      (mantener tu master): cambia SECRET por cualquier string nuevo.
+  //
+  //   2. Invalidar TAMBIÉN tu master password (ej: se ha filtrado):
+  //      cambia MASTER_PASS por una nueva (y opcionalmente SECRET también).
+  //
+  //   3. Invalidar UNA clave concreta sin afectar al resto:
+  //      no es posible sin backend — toca rotar SECRET y reemitir las
+  //      válidas que quieras mantener.
+  //
+  // Nota: las sesiones ya activas (pestañas abiertas) no se expulsan.
+  // La rotación afecta a re-entradas/nuevas sesiones.
+  //
   var MASTER_PASS = 'tld-2026-master';
   var SECRET = 'tld-portfolio-sig-9k3mZ';
 
